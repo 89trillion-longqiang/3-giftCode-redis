@@ -1,20 +1,20 @@
-package service
+package module
 
 import (
 	"context"
 	"fmt"
+
 	"giftCode/config"
-	"giftCode/gift"
 	"github.com/go-redis/redis/v8" // 注意导入的是新版本
 )
 
 var rdb *redis.Client  = config.InitClient() ///声明一个全局的rdb变量
 
-func HashSet(g gift.Gift) error{
+func HashSet(g Gift) error{
 	ctx := context.Background()
 
 	if g.IsEmpty() {
-		err := fmt.Errorf("gift struct is empty")
+		err := fmt.Errorf("module struct is empty")
 		return err
 	}
 	if ExistsKey(g.GiftCode) {

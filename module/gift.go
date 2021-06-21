@@ -1,4 +1,4 @@
-package gift
+package module
 
 type Gift struct {
 	GiftCode string      ///礼包码
