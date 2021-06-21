@@ -1,6 +1,9 @@
-package handle
+package ctrl
 
-import "github.com/gin-gonic/gin"
+import (
+	"giftCode/handle"
+	"github.com/gin-gonic/gin"
+)
 
 func AdminCreatGiftcode(c *gin.Context){
 	des := c.Query("des")
@@ -8,7 +11,7 @@ func AdminCreatGiftcode(c *gin.Context){
 	ValidPeriod :=c.Query("VP")
 	GiftContent :=c.Query("GC")
 	CreatePer := c.Query("CP")
-	retMap := HandleAdminCreatGiftcode(des,GiftNum,ValidPeriod,GiftContent,CreatePer)
+	retMap := handle.HandleAdminCreatGiftcode(des,GiftNum,ValidPeriod,GiftContent,CreatePer)
 	c.JSON(200,gin.H{
 		"condition":retMap["condition"],
 		"GiftCode" : retMap["GiftCode"],
@@ -16,7 +19,7 @@ func AdminCreatGiftcode(c *gin.Context){
 }
 func AdminInquireGiftCode(c *gin.Context){
 	GiftCode := c.Query("giftCode")
-	retMap,infoMap := HadnleAdminInquireGiftCode(GiftCode)
+	retMap,infoMap := handle.HadnleAdminInquireGiftCode(GiftCode)
 	c.JSON(200, gin.H{
 		"condition": retMap["condition"],
 		"GiftCode":  GiftCode,
@@ -27,7 +30,7 @@ func AdminInquireGiftCode(c *gin.Context){
 func Client(c *gin.Context)  {
 	GiftCode := c.Query("giftCode")
 	userName := c.Query("usr")
-	ret := HandleClient(GiftCode,userName)
+	ret := handle.HandleClient(GiftCode,userName)
 	c.JSON(200,gin.H{
 		"condition" :ret["condition"] ,
 		"GiftContent" : ret["GiftContent"],
