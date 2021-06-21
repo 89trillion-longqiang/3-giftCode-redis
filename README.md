@@ -23,9 +23,9 @@
 ├── main.go
 ├── router                      #路由        
 │   └── router.go
-├── service
+├── service                     #处理通用逻辑 操作redis
 │   └── redisSer.go
-└── util
+└── util                        #工具方法 生成随机礼品码
     └── getRandCode.go
 ```
 #代码逻辑分层  gift-Redis
@@ -33,9 +33,8 @@
 | :----: | :----|:---- | :-----|
 |router  | /router|路由转发 |调用ctrl|
 |ctrl    | /ctrl  | 请求参数验证，处理请求后构造回复消息|调用handle|
-|handle  | /handle|处理具体的业务逻辑 |调用service module util|
-|service | /service|处理通用逻辑| 被handle调用 调用module|
-|module  | /gift|数据模型 |被handle service调用|
+|handle  | /handle|处理具体的业务逻辑 |调用module util|
+|module  | /gift |数据模型 操作数据库 |被handle service调用|
 |util    | /util | 通用工具 | 被handle调用|
 
 
