@@ -13,18 +13,16 @@
 │   └── redis.go
 ├── ctrl                        #处理router的请求
 │   └── routerCtrl.go
-├── gift                        #保存gift的数据结构
-│   └── gift.go
+├── module                      
+│   └── gift.go           #保存gift的数据结构
+│   └── redisSer.go       #操作redis
 ├── gift_test.go                #单元测试
 ├── go.mod
-├── go.sum
 ├── handle                      #处理具体业务逻辑
 │   └── handle.go
 ├── main.go
-├── router                      #路由        
+├── router                      #路由转发       
 │   └── router.go
-├── service                     #处理通用逻辑 操作redis
-│   └── redisSer.go
 └── util                        #工具方法 生成随机礼品码
     └── getRandCode.go
 ```
