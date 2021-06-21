@@ -13,7 +13,5 @@ func InitClient() (  *redis.Client) {
 		PoolSize: 100, // 连接池大小
 	})
 
-
-
 	return RDB
 }

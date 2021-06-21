@@ -6,15 +6,14 @@ import (
 	"strings"
 	"time"
 
-	"giftCode/gift"
-	"giftCode/service"
+	"giftCode/module"
 	"giftCode/util"
 )
 func HandleAdminCreatGiftcode(des string,GiftNum string,ValidPeriod string,GiftContent string,CreatePer string)  map[string]string{
 	retMap := make(map[string]string,2)
 	GiftCode := util.GetRandCode(8)
 	CreatTime := time.Unix(time.Now().Unix(),0).Format("2006-01-02 15:04:05")
-	err := service.HashSet(gift.Gift{
+	err := module.HashSet(module.Gift{
 		GiftCode,
 		des,
 		GiftNum,
@@ -43,8 +42,8 @@ func HadnleAdminInquireGiftCode(GiftCode string) (map[string]string,map[string]s
 		return retMap , nil
 	}
 
-	if service.ExistsKey(GiftCode) {
-		ret, err := service.HashGetAll(GiftCode)
+	if module.ExistsKey(GiftCode) {
+		ret, err := module.HashGetAll(GiftCode)
 		if err != nil {
 			retMap["condition"]="error"
 			retMap["giftCode"] =  err.Error()
@@ -75,7 +74,7 @@ func HandleClient(GiftCode string,userName string) map[string]string{
 		return retMap
 	}
 
-	ret , err := service.HashGetAll(GiftCode)
+	ret , err := module.HashGetAll(GiftCode)
 	ret["GiftCode"] = GiftCode
 	if err != nil{
 		retMap["condition"]="error"
@@ -113,7 +112,7 @@ func HandleClient(GiftCode string,userName string) map[string]string{
 		ret["AvailableNum"] = avanumS
 		ret["ClaimList"] = string(ret["ClaimList"]) +" " + outString + ";"
 
-		err := service.HashSetMap(ret)
+		err := module.HashSetMap(ret)
 		if err != nil {
 			fmt.Printf("%s",err)
 		}

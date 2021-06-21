@@ -1,16 +1,16 @@
 package router
 
 import (
-	"giftCode/handle"
+	"giftCode/ctrl"
 	"github.com/gin-gonic/gin"
 )
 func SetUpRount() *gin.Engine  {
 	r := gin.Default()
 	c1 := r.Group("/giftCode")
 
-	c1.GET("/adminCreatGiftcode", handle.AdminCreatGiftcode)
-	c1.GET("/admininquireGiftCode", handle.AdminInquireGiftCode)
-	c1.GET("/client", handle.Client)
+	c1.GET("/adminCreatGiftcode", ctrl.AdminCreatGiftcode)
+	c1.GET("/admininquireGiftCode", ctrl.AdminInquireGiftCode)
+	c1.GET("/client", ctrl.Client)
 
 	return r
 }
