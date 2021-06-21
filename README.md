@@ -160,3 +160,16 @@ usr 类型string 此字段用来输入用户名称
     "condition": "error"
 }
 ```
+
+#第三方库
+## redis
+```
+用于  操作redis 
+代码 https://github.com/go-redis/redis
+```
+
+## gin
+```
+用于  开发服务器框架
+代码  https://github.com/gin-gonic/gin 
+```
