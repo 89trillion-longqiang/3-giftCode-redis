@@ -39,6 +39,21 @@
 |util    | /util | 通用工具 | 被handle调用|
 
 
+#存储设计
+
+##gift
+| 内容 | 类型 |  说明 |
+| :----:| :---- | :----|
+|GiftCode |string |礼包码
+|Description |string|礼包描述
+|GiftNum |string	|可领取数
+|ValidPeriod |string|有效期
+|GiftContent| string | 礼包内容
+|CreatePer |string  |创建用户
+|CreatTime| string  |创建时间
+|AvailableNum| string |已领取次数
+|ClaimList |string   |领取列表
+
 #接口设计
 ##1。创建礼品码
 
