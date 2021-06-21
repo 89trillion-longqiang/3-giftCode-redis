@@ -34,7 +34,7 @@
 |router  | /router|路由转发 |调用ctrl|
 |ctrl    | /ctrl  | 请求参数验证，处理请求后构造回复消息|调用handle|
 |handle  | /handle|处理具体的业务逻辑 |调用module util|
-|module  | /gift |数据模型 操作数据库 |被handle service调用|
+|module  | /gift |数据模型 操作数据库 |被handle调用|
 |util    | /util | 通用工具 | 被handle调用|
 
 
