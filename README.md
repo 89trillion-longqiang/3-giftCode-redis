@@ -9,6 +9,8 @@
 #目录结构
 ```
 ├── README.md                   #介绍
+├── PreTest                     #压力测试
+│   ├── giftCode.py
 ├── config                      #配置redis
 │   └── redis.go
 ├── ctrl                        #处理router的请求
@@ -21,6 +23,8 @@
 ├── handle                      #处理具体业务逻辑
 │   └── handle.go
 ├── main.go
+├── picture                      
+│   └──flowchat.png             #保存流程图
 ├── router                      #路由转发       
 │   └── router.go
 └── util                        #工具方法 生成随机礼品码
